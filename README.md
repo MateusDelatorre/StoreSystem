@@ -4,36 +4,59 @@
 ## Classes
 ### Pessoas
 #### atributos
-protected name : String<br>
-protected age: String<br>
-protected CPF: String
+- protected name : String<br>
+- protected age: String<br>
+- protected CPF: String
 ####  Metodos
-Pessoa(nome, idade, cpf)
+- Pessoa(nome, idade, cpf)
 
 ### Funcionario
-#### parent
+#### **parent**
 Pessoa
-#### atributos
-protected Salario : double<br>
-protected age: String<br>
-protected CPF: String
-####  Metodos
-Pessoa(nome, idade, cpf)
+#### **atributos**
+- protected Salario : double<br>
+#### **Metodos**
+- Funcionario(salario)
 
 ### Cliente
-#### parent
+#### **parent**
 Pessoa
-#### atributos
-protected name : String<br>
-protected age: String<br>
-protected CPF: String
-####  Metodos
+#### **atributos**
+protected Senioridade : String<br>
+protected TotalComprado: String<br>
+#### **Metodos**
 Pessoa(nome, idade, cpf)
 
-### Pessoas
-#### atributos
-protected name : String<br>
-protected age: String<br>
-protected CPF: String
-####  Metodos
-Pessoa(nome, idade, cpf)
+### Vendedores
+#### **parent**
+Funcionario
+#### **atributos**
+- protected vendas_no_mes : double<br>
+#### **Metodos**
+- Vendedores(vendas_no_mes)
+
+### Gerente
+#### **parent**
+Funcionario
+#### **atributos**
+- protected lucro_do_mes : double<br>
+#### **Metodos**
+- Vendedores(vendas_no_mes)
+
+### Caixas
+#### **parent**
+Funcionario
+#### **atributos**
+- protected vendas_no_mes : double<br>
+#### **Metodos**
+- Vendedores(vendas_no_mes)
+
+### Auditores
+#### **parent**
+Funcionario
+#### **atributos**
+- protected vendas_no_mes : double<br>
+#### **Metodos**
+- Vendedores(vendas_no_mes)
+
+interface

@@ -2,7 +2,7 @@ package Classes;
 
 public class caixa extends Funcionario {
     
-     public caixa(float cpf, String nome, float salario) {
+    public caixa(float cpf, String nome, float salario) {
         super(cpf, nome, salario);
     }
 
@@ -26,7 +26,7 @@ public class caixa extends Funcionario {
     }
 
     @Override
-    public char getNome(String nome) {
+    public String getNome(String nome) {
         return super.getNome(nome);
     }
 

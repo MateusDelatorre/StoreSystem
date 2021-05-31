@@ -20,7 +20,7 @@ public class Funcionario {
     public void setCpf(float cpf) {
         this.cpf = cpf;
     }
-    public char getNome(String nome) {
+    public String getNome(String nome) {
         return nome;
     }
     public void setNome(String nome) {

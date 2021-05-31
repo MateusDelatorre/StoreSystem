@@ -3,9 +3,7 @@ package Classes;
 public class gerente extends Funcionario {
 
     private float lucroObtidoMes;
-   
-   
-   
+
     public gerente(float cpf, String nome, float salario, float lucroObtidoMes) {
         super(cpf, nome, salario);
         this.lucroObtidoMes = lucroObtidoMes;
@@ -41,7 +39,7 @@ public class gerente extends Funcionario {
     }
 
     @Override
-    public char getNome(String nome) {
+    public String getNome(String nome) {
         return super.getNome(nome);
     }
 

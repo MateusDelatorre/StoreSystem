@@ -43,7 +43,7 @@ public class vendedor extends Funcionario {
     }
 
     @Override
-    public char getNome(String nome) {
+    public String getNome(String nome) {
         return super.getNome(nome);
     }
 

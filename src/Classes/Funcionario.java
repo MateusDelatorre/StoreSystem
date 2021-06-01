@@ -1,36 +1,41 @@
 package Classes;
 
-public class Funcionario {
-    private String cpf ;
-    private String nome;
+public class Funcionario extends Pessoa{
+    
     private float salario;
     
-    
-    //construtor de funcionario
     public Funcionario(String cpf, String nome, float salario) {
-        this.cpf = cpf;
-        this.nome = nome;
+        super(nome, cpf);
         this.salario = salario;
     }
 
-    //metodos
-    public String getCpf() {
-        return cpf;
-    }
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-    public String getNome(String nome) {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+
     public float getSalario() {
         return salario;
     }
     public void setSalario(float salario) {
         this.salario = salario;
+    }
+
+
+    @Override
+    public String getCpf() {
+        return super.getCpf();
+    }
+
+    @Override
+    public void setCpf(String cpf) {
+        super.setCpf(cpf);;
+    }
+
+    @Override
+    public String getNome(String nome) {
+        return super.getNome(nome);
+    }
+    
+    @Override
+    public void setNome(String nome) {
+        super.setNome(nome);;
     }
 
 }

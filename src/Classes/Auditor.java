@@ -1,11 +1,10 @@
 package Classes;
 
-public class Caixas extends Funcionario {
-    
-    public Caixas(String cpf, String nome, float salario) {
+public class Auditor extends Funcionario {
+
+    public Auditor(String cpf, String nome, float salario) {
         super(cpf, nome, salario);
     }
-
 
     @Override
     public void setCpf(String cpf) {
@@ -34,5 +33,4 @@ public class Caixas extends Funcionario {
     public float getSalario() {
         return super.getSalario();
     }
-
 }

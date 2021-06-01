@@ -1,11 +1,11 @@
 package Classes;
 
-public class vendedor extends Funcionario {
+public class Vendedor extends Funcionario {
     private float vendasMes;
     
     
 
-    public vendedor(float cpf, String nome, float salario, float vendasMes) {
+    public Vendedor(String cpf, String nome, float salario, float vendasMes) {
         super(cpf, nome, salario);
         this.vendasMes = vendasMes;
     }
@@ -20,7 +20,7 @@ public class vendedor extends Funcionario {
 
 
     @Override
-    public void setCpf(float cpf) {
+    public void setCpf(String cpf) {
         super.setCpf(cpf);
     }
 
@@ -38,7 +38,7 @@ public class vendedor extends Funcionario {
     }
 
     @Override
-    public float getCpf() {
+    public String getCpf() {
         return super.getCpf();
     }
 

@@ -1,23 +1,23 @@
 package Classes;
 
 public class Funcionario {
-    private float cpf = 88899955566f;
-    private String nome = "Jose Da Silva";
-    private float salario = 1200f;
+    private String cpf ;
+    private String nome;
+    private float salario;
     
     
     //construtor de funcionario
-    public Funcionario(float cpf, String nome, float salario) {
+    public Funcionario(String cpf, String nome, float salario) {
         this.cpf = cpf;
         this.nome = nome;
         this.salario = salario;
     }
 
     //metodos
-    public float getCpf() {
+    public String getCpf() {
         return cpf;
     }
-    public void setCpf(float cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
     public String getNome(String nome) {

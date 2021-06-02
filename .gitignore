@@ -4,3 +4,4 @@ src/module-info.java
 .project 
 githubssh
 *.pub
+.vscode

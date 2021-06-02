@@ -25,8 +25,8 @@ public class Auditores extends Funcionario {
     }
 
     @Override
-    public String getNome(String nome) {
-        return super.getNome(nome);
+    public String getNome() {
+        return super.getNome();
     }
 
     @Override

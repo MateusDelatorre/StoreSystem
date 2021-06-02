@@ -5,3 +5,5 @@ src/module-info.java
 githubssh
 *.pub
 .vscode
+*.class
+src/Classes/gerente.java

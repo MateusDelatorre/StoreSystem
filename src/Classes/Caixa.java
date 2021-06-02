@@ -1,38 +1,39 @@
 package Classes;
 
-public class Funcionario extends Pessoa{
+public class Caixa extends Funcionario {
     
-    private float salario;
-    
-    public Funcionario(String nome, String cpf, float salario) {
-        super(nome, cpf);
-        this.salario = salario;
+    public Caixa(String nome, String cpf, float salario) {
+        super(nome, cpf, salario);
     }
 
     @Override
     public String getNome() {
         return super.getNome();
     }
+    
     @Override
     public void setNome(String nome) {
-        super.setNome(nome);;
+        super.setNome(nome);
     }
+    
     @Override
     public String getCpf() {
         return super.getCpf();
     }
+
     @Override
     public void setCpf(String cpf) {
-        super.setCpf(cpf);;
+        super.setCpf(cpf);
     }
 
+    @Override
     public float getSalario() {
-        return salario;
-    }
-    public void setSalario(float salario) {
-        this.salario = salario;
+        return super.getSalario();
     }
 
-    
+    @Override
+    public void setSalario(float salario) {
+        super.setSalario(salario);
+    }
 
 }

@@ -4,6 +4,10 @@ public class Produto {
 
     private int codigo;
     private String nome;
+    private String categoria;
+    private int preco_compra;
+    private int preco_venda;
+    private int quantidade_em_estoque;
     private String descricao;
 
     //construtor Produto

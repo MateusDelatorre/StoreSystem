@@ -3,36 +3,43 @@ package Interface;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Login extends Interface{
+public class Login {
 
-    JButton auditores;
+    static JButton auditores;
 	JButton caixas;
 	JButton cliente;
 	JButton gerente;
 	JButton vendedor;
-    
+
     public Login(){
-        super();
-        super.setTitle("Login");
-        super.setVisible(true);
-        super.setSize(300, 350);
-        auditoresButton();
-        caixasButton();
-        clienteButton();
-        gerenteButton();
-        vendedorButton();
+        Interface.Start();
+        TelaLogin();
     }
 
-    private void auditoresButton(){
-        this.auditores = new JButton("auditores");
-		this.auditores.setBounds(100, 100, 100, 40);
-        super.addButton(this.auditores, new ActionListener() {
+    protected static void TelaLogin(){
+        Interface.setTitle("Login");
+        Interface.setSize(300, 350);
+        auditoresButton();
+        // caixasButton();
+        // clienteButton();
+        // gerenteButton();
+        // vendedorButton();
+    }
+
+    private static void auditoresButton(){
+        if (auditores == null) {
+            auditores = new JButton("auditores");
+            auditores.setBounds(100, 100, 100, 40);
+        }
+        Interface.addButton(auditores, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 destroy();
+                AuditoresGui.TelaAuditores();
             }
         });
     }
+
     private void caixasButton(){
         this.caixas = new JButton("caixas");
 		this.caixas.setBounds(100, 100, 100, 40);
@@ -52,7 +59,13 @@ public class Login extends Interface{
 		this.vendedor.setBounds(100, 250, 100, 40);
     }
 
-    private void destroy() {
-        this.auditores.setEnabled(false);
+    private static void destroy() {
+        Interface.destroy(auditores);
+        // Interface.destroy(caixas);
+        // Interface.destroy(cliente);
+        // Interface.destroy(gerente);
+        // Interface.destroy(vendedor);
+        Interface.reload();
     }
+
 }

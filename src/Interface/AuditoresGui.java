@@ -1,32 +1,41 @@
 package Interface;
 
-import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 import java.awt.event.*;
 import javax.swing.*;
 
-
-public class AuditoresGui extends Interface{
-    JFrame AuditoresFrame;
-	JButton back;
-	// JButton caixas;
-	// JButton cliente;
-	// JButton gerente;
-	// JButton vendedor;
+public class AuditoresGui {
+	static JButton back;
 	boolean visibility;
     
 	public AuditoresGui(){
 
 	}
 
-	public void backButton() {
-		back = new JButton("auditores");
-		back.setBounds(100, 50, 100, 40);
-		super.addButton(back, new ActionListener() {
+	public static void TelaAuditores(){
+		backButton();
+	}
+
+	public static void backButton() {
+		if (back == null) {
+            back = new JButton("back");
+			back.setBounds(100, 50, 100, 40);
+        }
+		
+		Interface.addButton(back, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AuditoresFrame.dispose();
-                
+				destroy();
+                Login.TelaLogin();
             }
         });
+    }
+
+	private static void destroy() {
+        Interface.destroy(back);
+        // Interface.destroy(caixas);
+        // Interface.destroy(cliente);
+        // Interface.destroy(gerente);
+        // Interface.destroy(vendedor);
+        Interface.reload();
     }
 }

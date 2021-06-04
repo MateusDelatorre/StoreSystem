@@ -17,7 +17,7 @@ public class Produto {
         this.categoria = Categoria;
         this.preco_compra = Preco_Compra;
         this.preco_venda = Preco_venda;
-        this.quantidade_estoque = Quantidade_Estoque;
+        this.quantidade_em_estoque = Quantidade_em_Estoque;
         this.descricao = Descricao;
     }
 
@@ -53,11 +53,11 @@ public class Produto {
     public void setpreco_venda(int prevend) {
         this.preco_venda = prevend;
     }
-    public int getquantidade_estoque() {
-        return this.quantidade_estoque;
+    public int getquantidade_em_estoque() {
+        return this.quantidade_em_estoque;
     }
-    public void setquantidade_estoque(int quant) {
-        this.quantidade_estoque = quant;
+    public void setquantidade_em_estoque(int quant) {
+        this.quantidade_em_estoque = quant;
     }
     public String getDescricao() {
         return this.descricao;
@@ -65,4 +65,3 @@ public class Produto {
     public void setDescricao(String d) {
         this.descricao = d;
     }
-}

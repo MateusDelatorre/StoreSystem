@@ -7,18 +7,18 @@ public class Produto {
     private String categoria;
     private int preco_compra;
     private int preco_venda;
-    private int quantida_estoque;
+    private int quantidade_em_estoque;
     private String descricao;
 
     //construtor Produto
-    public Produto (int codigo, String nome, String descricao, String categoria, int preco_venda, int preco_compra, int quantida_estoque) {
-        this.codigo = Codigo;
-        this.nome = Nome;
-        this.categoria = Categoria;
-        this.preco_compra = Preco_Compra;
-        this.preco_venda = Preco_venda;
-        this.quantidade_em_estoque = Quantidade_em_Estoque;
-        this.descricao = Descricao;
+    public Produto (int codigo, String nome, String descricao, String categoria, int preco_venda, int preco_compra, int quantidade_em_estoque) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.categoria = categoria;
+        this.preco_compra = preco_compra;
+        this.preco_venda = preco_venda;
+        this.quantidade_em_estoque = quantidade_em_estoque;
+        this.descricao = descricao;
     }
 
     //Gets-Sets
@@ -65,3 +65,4 @@ public class Produto {
     public void setDescricao(String d) {
         this.descricao = d;
     }
+}

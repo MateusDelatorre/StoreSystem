@@ -2,6 +2,7 @@ package handler;
 
 import java.io.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Classes.Produto;
@@ -35,18 +36,20 @@ public class FileHandler {
         }
     }
 
-    public void readFile(String file_name) {
+    public static ArrayList<String> readFile(String file_name) {
+        ArrayList<String> lines = new ArrayList<String>();
         try {
-            File myObj = new File("Banco/" + file_name + ".txt");
-            Scanner myReader = new Scanner(myObj);
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                System.out.println(data);
+            File file = new File("Banco/" + file_name + ".txt");
+            Scanner reader = new Scanner(file);
+            while (reader.hasNextLine()) {
+                lines.add(reader.nextLine());
             }
-            myReader.close();
+            reader.close();
+            return lines;
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
+            return null;
         }
     }
 }

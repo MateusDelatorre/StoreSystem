@@ -5,15 +5,21 @@ import Classes.Produto;
 
 public class ProdutoHandler {
 
-    ArrayList<String> lines = new ArrayList<String>();
-    ArrayList<Produto> produtos = new ArrayList<Produto>();
+    static ArrayList<String> lines = new ArrayList<String>();
+    static ArrayList<Produto> produtos = new ArrayList<Produto>();
     
-    public ProdutoHandler(){
+    private ProdutoHandler(){
 
     }
 
     public void carregarProduto(){
         FileHandler.readFile("produtos");
+    }
+
+    public static void toArrayString(){
+        for (int i = 0; i < produtos.size(); i++) {
+            
+        }
     }
 
 }

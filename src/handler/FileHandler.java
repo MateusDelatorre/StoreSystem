@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Classes.Produto;
-
 public class FileHandler {
     
     private void criarFile(String file_name) {
@@ -23,11 +21,13 @@ public class FileHandler {
         }
     }
 
-    public void writeFile(String file_name) {
+    public void writeFile(String file_name, ArrayList<String> lines) {
         criarFile(file_name);
         try {
             FileWriter myWriter = new FileWriter("Banco/" + file_name + ".txt");
-            myWriter.write("Files in Java might be tricky, but it is fun enough!");
+            for (int i = 0; i < lines.size(); i++) {
+                myWriter.write(lines.get(i));
+            }
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {

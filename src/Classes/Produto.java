@@ -1,14 +1,16 @@
 package Classes;
 
+import java.util.ArrayList;
+
 public class Produto {
 
     private int codigo;
-    private String nome;
     private String categoria;
+    private String descricao;
+    private String nome;
     private int preco_compra;
     private int preco_venda;
     private int quantidade_em_estoque;
-    private String descricao;
 
     //construtor Produto
     public Produto (int codigo, String nome, String descricao, String categoria, int preco_venda, int preco_compra, int quantidade_em_estoque) {
@@ -64,5 +66,17 @@ public class Produto {
     }
     public void setDescricao(String d) {
         this.descricao = d;
+    }
+
+    public ArrayList<String> toArrayList(){
+        ArrayList<String> lines = new ArrayList<String>();
+        lines.add(categoria);
+        lines.add(String.valueOf(codigo));
+        lines.add(descricao);
+        lines.add(nome);
+        lines.add(String.valueOf(preco_compra));
+        lines.add(String.valueOf(preco_venda));
+        lines.add(String.valueOf(quantidade_em_estoque));
+        return lines;
     }
 }

@@ -60,6 +60,7 @@ public class Login {
             }
         });
     }
+
     private static void clienteButton(){
         Interface.addButton(cliente, new ActionListener() {
             @Override
@@ -68,9 +69,8 @@ public class Login {
                 ClienteGui.TelaCliente();
             }
         });
-
-
     }
+
     private static void gerenteButton(){
         Interface.addButton(gerente, new ActionListener() {
             @Override
@@ -79,9 +79,8 @@ public class Login {
                 GerenteGui.TelaGerente();
             }
         });
-
-
     }
+
     private static void vendedorButton(){
         Interface.addButton(vendedor, new ActionListener() {
             @Override
@@ -100,5 +99,4 @@ public class Login {
         Interface.destroy(vendedor);
         Interface.reload();
     }
-
 }

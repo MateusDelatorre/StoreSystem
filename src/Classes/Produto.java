@@ -8,12 +8,12 @@ public class Produto {
     private String categoria;
     private String descricao;
     private String nome;
-    private int preco_compra;
-    private int preco_venda;
+    private double preco_compra;
+    private double preco_venda;
     private int quantidade_em_estoque;
 
     //construtor Produto
-    public Produto (int codigo, String nome, String descricao, String categoria, int preco_venda, int preco_compra, int quantidade_em_estoque) {
+    public Produto (int codigo, String categoria, String descricao, String nome, double preco_compra, double preco_venda, int quantidade_em_estoque) {
         this.codigo = codigo;
         this.nome = nome;
         this.categoria = categoria;
@@ -43,13 +43,13 @@ public class Produto {
     public void setCategoria(String categ) {
         this.categoria = categ;
     }
-    public int getpreco_compra() {
+    public double getpreco_compra() {
         return this.preco_compra;
     }
     public void setpreco_compra(int precomp) {
         this.preco_compra = precomp;
     }
-    public int getpreco_venda() {
+    public double getpreco_venda() {
         return this.preco_venda;
     }
     public void setpreco_venda(int prevend) {
@@ -66,6 +66,10 @@ public class Produto {
     }
     public void setDescricao(String d) {
         this.descricao = d;
+    }
+
+    public String toString(){
+        return "Categoria: " + this.categoria + "\n" + "Codigo: " + this.codigo + "\n" + "Descrição: " + this.descricao  + "\n" + "Nome: " + this.nome + "\n" + "Preço de Compra: " + this.preco_compra + "\n" + "Preço de Venda: " + this.preco_venda + "\n" + "quantidade_em_estoque: " + this.quantidade_em_estoque;
     }
 
     public ArrayList<String> toArrayList(){

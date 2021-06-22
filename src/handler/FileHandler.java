@@ -5,9 +5,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class FileHandler {
+public final class FileHandler {
+
+    private FileHandler(){
+
+    }
     
-    private void criarFile(String file_name) {
+    private static void criarFile(String file_name) {
         try {
             File myObj = new File("Banco/" + file_name + ".txt");
             if (myObj.createNewFile()) {
@@ -21,7 +25,7 @@ public class FileHandler {
         }
     }
 
-    public void writeFile(String file_name, ArrayList<String> lines) {
+    public static void writeFile(String file_name, ArrayList<String> lines) {
         criarFile(file_name);
         try {
             FileWriter myWriter = new FileWriter("Banco/" + file_name + ".txt");

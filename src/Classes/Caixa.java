@@ -6,6 +6,11 @@ public class Caixa extends Funcionario {
         super(nome, cpf, salario);
     }
 
+    public Caixa(String nome, String cpf) {
+        super(nome, cpf);
+    }
+
+
     @Override
     public String getNome() {
         return super.getNome();

@@ -3,6 +3,15 @@ package Classes;
 public class Funcionario extends Pessoa{
     
     private float salario;
+
+    public Funcionario() {
+        
+    }
+
+    public Funcionario(String nome, String cpf) {
+        super(nome, cpf);
+    }
+
     
     public Funcionario(String nome, String cpf, float salario) {
         super(nome, cpf);

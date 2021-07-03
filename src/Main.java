@@ -13,5 +13,6 @@ public class Main {
         // Produto teste = ProdutoHandler.getproduto();
         // System.out.println(teste.toString());
         ProdutoHandler.printaProdutos();
+        
     }
 }

@@ -1,7 +1,7 @@
 package Funcoes;
 
-public class Renda_da_loja {
-    private float renda;
+abstract class Renda_da_loja {
+    private static float renda;
     
     //construtores
     public Renda_da_loja() {

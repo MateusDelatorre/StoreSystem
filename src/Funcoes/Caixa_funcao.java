@@ -2,19 +2,14 @@ package Funcoes;
 
 import Classes.Caixa;
 
-public class Caixa_funcao extends Caixa {
+interface Caixa_funcao {
     private float dinheiro_recebido;
 
-    //construtor
-     public Caixa_funcao(String nome, String cpf, float dinheiro_recebido,float setRenda) {
-        super(nome, cpf);
-        this.dinheiro_recebido = dinheiro_recebido;
-        setRenda = dinheiro_recebido;
+    public interface Caixa_funcao{
+        setRenda = setDinheiro_recebido;
     }
 
-    
 
-    
 
     //get e set
     public float getDinheiro_recebido() {

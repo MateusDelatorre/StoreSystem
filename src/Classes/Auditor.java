@@ -1,10 +1,20 @@
 package Classes;
 
-public class Auditor extends Funcionario {
+import Interface.AuditoresGui;
+
+public class Auditor extends Funcionario implements Auditores_funcao{
 
     public Auditor(String nome, String cpf, float salario) {
         super(nome, cpf, salario);
     }
+
+    //funcao
+    public AuditoresGui(String nome, String cpf,float valor_pagar,float renda){
+        float x;
+        x = valor_pagar-renda;
+        return System.out.println("O VALOR DE %f FOI PAGO COM A RENDA %f. RENDA ATUAL DA LOJA: %f",valor_pagar,renda,x);
+    }
+
 
     @Override
     public String getNome() {

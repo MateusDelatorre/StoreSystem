@@ -1,5 +1,7 @@
 package Classes;
 
+import Interface.CaixasGui;
+
 public class Caixa extends Funcionario implements Caixa_funcao {
     
     public Caixa(String nome, String cpf, float salario) {
@@ -11,9 +13,10 @@ public class Caixa extends Funcionario implements Caixa_funcao {
     }
 
     //função
-    public Caixa_funcao(String nome, String cpf, float dinheiro_recebido, float renda){
-          renda = dinheiro_recebido;  
+    public CaixasGui(String nome, String cpf, float dinheiro_recebido, float renda){
+        renda = dinheiro_recebido; 
     }
+          
 
 
     @Override

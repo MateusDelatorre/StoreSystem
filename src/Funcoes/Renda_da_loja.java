@@ -7,14 +7,10 @@ abstract class Renda_da_loja {
     public Renda_da_loja() {
         
     }
-    
-    public Renda_da_loja(float renda) {
-        this.renda = renda;
-    }
 
     //get e set
 
-    public float getRenda() {
+    public static float getRenda() {
         return renda;
     }
 

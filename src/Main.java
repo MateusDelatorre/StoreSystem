@@ -1,5 +1,6 @@
 import Classes.Produto;
 import Interface.Login;
+import Interface.Menu;
 import handler.ProdutoHandler;
 
 public class Main {
@@ -10,8 +11,6 @@ public class Main {
         // System.out.println(x);
         // Login gui = new Login();
         ProdutoHandler.carregarProduto();
-        // Produto teste = ProdutoHandler.getproduto();
-        // System.out.println(teste.toString());
-        ProdutoHandler.printaProdutos();
+        Menu.getInstance();
     }
 }

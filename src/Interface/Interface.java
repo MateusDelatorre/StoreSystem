@@ -46,4 +46,15 @@ public final class Interface{
     protected static void endFrame() {
 		frame.dispose();
     }
+
+	protected void makeTable(String[][] data, String[] columnNames){
+		JTable table = new JTable(data, columnNames);
+		table.setBounds(30, 40, 700, 500);
+	
+		// adding it to JScrollPane
+		JScrollPane sp = new JScrollPane(table);
+		frame.setLayout(null);
+		frame.getContentPane().add(sp);
+		reload();
+	}
 }

@@ -2,7 +2,20 @@ package Interface;
 
 public class VendedorGui {
 
-    public static void TelaVendedor() {
+    protected static void Start(){
+        
+    }
+
+    protected static void StartButtons(){
+        
+    }
+
+    protected static void Focus(){
+        
+    }
+
+    private static void AddButtons(){
+        
     }
 
 }

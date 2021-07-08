@@ -22,6 +22,19 @@ public final class ProdutoHandler {
         return produtos.get(index);
     }
 
+    public static int getSize(){
+        return produtos.size();
+    }
+
+    public static String[][] toArray(){
+        String[][] data = new String[produtos.size()][];
+        for (int i = 0; i < produtos.size(); i++) {
+            ArrayList<String> row = produtos.get(i).toArrayList();
+            data[i] = row.toArray(new String[row.size()]);
+        }
+        return data;
+    }
+
     public static void printaProdutos(){
         for (int i = 0; i < produtos.size(); i++) {
             System.out.println(produtos.get(i).toString());
@@ -30,15 +43,15 @@ public final class ProdutoHandler {
 
     public static void carregarProduto(){
         ArrayList<String> lines = FileHandler.readFile(file_name);
-        toArrayProduto(lines);
+        toArrayList(lines);
     }
 
     public static void salvarProdutos(){
-        ArrayList<String> lines = toArrayString();
+        ArrayList<String> lines = toArrayList();
         FileHandler.writeFile(file_name, lines);
     }
 
-    private static void toArrayProduto(ArrayList<String> lines){
+    private static void toArrayList(ArrayList<String> lines){
         // if(produtos.size() != 0){
         // }
         for (int i = 0; i < lines.size(); i+= 7){
@@ -46,7 +59,7 @@ public final class ProdutoHandler {
         }
     }
 
-    private static ArrayList<String> toArrayString(){
+    private static ArrayList<String> toArrayList(){
         ArrayList<String> lines = new ArrayList<String>();
         for (int i = 0; i < produtos.size(); i++) {
             lines.addAll(produtos.get(i).toArrayList());

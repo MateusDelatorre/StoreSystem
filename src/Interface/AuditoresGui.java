@@ -1,41 +1,57 @@
 package Interface;
 
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import javax.swing.*;
 
-public class AuditoresGui {
-	static JButton back;
-	boolean visibility;
+import handler.ProdutoHandler;
+
+public class AuditoresGui extends GuiModel{
     
-	public AuditoresGui(){
+    private static AuditoresGui instance;
+    String[][] data;
 
+	private AuditoresGui(){
+        
 	}
 
-	public static void TelaAuditores(){
-		backButton();
-	}
-
-	public static void backButton() {
-		if (back == null) {
-            back = new JButton("back");
-			back.setBounds(100, 50, 100, 40);
+    protected static AuditoresGui getInstance() {
+        if (instance == null) {
+            instance = new AuditoresGui();
         }
-		
-		Interface.addButton(back, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-				destroy();
-                Login.TelaLogin();
-            }
-        });
+        return instance;
     }
 
-	private static void destroy() {
-        Interface.destroy(back);
-        // Interface.destroy(caixas);
-        // Interface.destroy(cliente);
-        // Interface.destroy(gerente);
-        // Interface.destroy(vendedor);
-        Interface.reload();
+    private void StartButtons(){
+        buttons = new ArrayList<JButton>();
+        buttons.add(new JButton("Teste"));
+        buttons.get(0).setBounds(10, 10, 100, 40);
+    }
+
+    protected void Focus(){
+        inicializaFrame("Auditores");
+        setVisible(true);
+        setSize(900, 800);
+        StartButtons();
+        addBackButton();
+        String[] columnNames = { "codigo", "categoria", "descricao", "nome", "preco_compra", "preco_venda", "quantidade_em_estoque" };
+        data = ProdutoHandler.toArray();
+        //  = {
+        //     { "codigo", "categoria", "descricao", "nome", "preco_compra", "preco_venda", "quantidade_em_estoque" },
+        //     { "codigo", "categoria", "descricao", "nome", "preco_compra", "preco_venda", "quantidade_em_estoque" }
+        // };
+
+        System.out.println(data[1][6]);
+        // super.addButton(buttons.get(0), new ActionListener() {
+        //     @Override
+        //     public void actionPerformed(ActionEvent e) {
+                
+        //     }
+        // });
+        //reload();
+        makeTable(data, columnNames);
+        moveBack(0, 0);
     }
 }

@@ -7,6 +7,8 @@ import handler.CaixaHandler;
 import Classes.Caixa;
 import handler.GerenteHandler;
 import Classes.Gerente;
+import handler.VendedorHandler;
+import Classes.Vendedor;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,9 +17,9 @@ public class Main {
         // int x = i + j;
         // System.out.println(x);
         // Login gui = new Login();
-        GerenteHandler.carregarGerente();
+        VendedorHandler.carregarVendedor();
         // Produto teste = ProdutoHandler.getproduto();
         // System.out.println(teste.toString());
-        GerenteHandler.printaGerente();
+        VendedorHandler.printaVendedor();
     }
 }

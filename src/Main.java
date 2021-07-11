@@ -1,6 +1,8 @@
 import Classes.Produto;
 import Interface.Login;
 import handler.ProdutoHandler;
+import Classes.Auditor;
+import handler.AuditorHandler;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,9 +11,9 @@ public class Main {
         // int x = i + j;
         // System.out.println(x);
         // Login gui = new Login();
-        ProdutoHandler.carregarProduto();
+        AuditorHandler.carregarAuditor();
         // Produto teste = ProdutoHandler.getproduto();
         // System.out.println(teste.toString());
-        ProdutoHandler.printaProdutos();
+        AuditorHandler.printaAuditor();
     }
 }

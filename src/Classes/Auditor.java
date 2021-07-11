@@ -1,39 +1,25 @@
 package Classes;
 
+import java.util.ArrayList;
+
 public class Auditor extends Funcionario {
 
-    public Auditor(String nome, String cpf, float salario) {
+    public Auditor(String nome, String cpf, Double salario) {
         super(nome, cpf, salario);
     }
 
-    @Override
-    public String getNome() {
-        return super.getNome();
-    }
-
-    @Override
-    public void setNome(String nome) {
-        super.setNome(nome);
-    }
-
-    @Override
-    public String getCpf() {
-        return super.getCpf();
-    }
-
-    @Override
-    public void setCpf(String cpf) {
-        super.setCpf(cpf);
-    }
-
-    @Override
-    public float getSalario() {
-        return super.getSalario();
-    }
-
-    @Override
-    public void setSalario(float salario) {
-        super.setSalario(salario);
-    }
     
+
+    public String toString(){
+        return "Nome: " + this.getNome() + "\n" + "CPF: " + this.getCpf() + "\n" + "Salario: " + this.getSalario();
+    }
+
+    public ArrayList<String> toArrayList(){
+        ArrayList<String> lines = new ArrayList<String>();
+        lines.add(this.getNome());
+        lines.add(String.valueOf(this.getCpf()));
+        lines.add(String.valueOf(this.getSalario()));
+        return lines;
+    }
+
 }

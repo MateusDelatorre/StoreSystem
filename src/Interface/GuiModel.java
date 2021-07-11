@@ -2,15 +2,19 @@ package Interface;
 
 import java.util.ArrayList;
 import java.awt.event.*;
+import java.awt.*;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public abstract class GuiModel {
 
   private JButton back;
   private JFrame frame;
-  private JScrollPane scroll_pane;
   protected ArrayList<JButton> buttons;
+  private JTable table;
+  private JScrollPane scrollPane;
 
   /*
   * Metodos para manipular o JFrame
@@ -20,22 +24,18 @@ public abstract class GuiModel {
   */
 	protected void StartFrame(String tittle) {
     frame = new JFrame(tittle);
-    scroll_pane = new JScrollPane();
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		frame.setLayout(null);//using no layout managers
-    frame.add(scroll_pane);
 		frame.setVisible(true);
-    frame.setSize(900, 800);
-    back = new JButton("back");
-    back.setBounds(100, 50, 100, 40);
+    frame.setSize(850, 500);
   }
 
-	protected void inicializaFrame(String tittle) {
+	protected void inicializaFrame(String tittle, String[][] data, String[] columns) {
     frame = new JFrame(tittle);
-    scroll_pane = new JScrollPane();
-		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    back = new JButton("back");
-    back.setBounds(100, 50, 100, 40);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setLayout(null);
+    frame.setSize(850, 500);
+    frame.setVisible(true);
   }
 
   /** Adiciona um JButton ao JFrame e adiciona um ActionListener para realizar uma ou mais funções ao ser clicado
@@ -43,6 +43,14 @@ public abstract class GuiModel {
 	protected void addButton(JButton button, ActionListener action) {
 		button.addActionListener(action);
 		frame.add(button);
+  }
+
+	protected void addLabel(JLabel label) {
+		frame.add(label);
+  }
+
+	protected void addComponent(JComponent component) {
+		frame.add(component);
   }
 
   /** Troca o titulo do JFrame.
@@ -77,6 +85,18 @@ public abstract class GuiModel {
     reload();
   }
 
+  protected void destroy(JComponent component) {
+    frame.remove(component);
+    reload();
+  }
+
+  protected void destroy(JComponent... components) {
+    for (JComponent component : components) {
+      frame.remove(component);
+    }
+    reload();
+  }
+
   /**
    * Retira os botões do JFrame.
    * O metodo não destoi de fato os botões, os botões vão continuar na memoria até o garbage colletor remover eles
@@ -104,16 +124,38 @@ public abstract class GuiModel {
     frame.dispose();
   }
 
-  protected void addBackButton() {
-    if (back == null) {
-      back = new JButton("Back");
-      back.setBounds(0, 0, 100, 40);
+  protected void getBackButton(){
+    back = new JButton("Back");
+  }
+
+  protected void inicializaBackButton(){
+    back = new JButton("Back");
+  }
+  
+  protected boolean isBackButtonNull(){
+    return back == null;
+  }
+
+  protected void posicionaBackButton(int x, int y, int width, int height){
+    back.setBounds(x, y, width, height);
+  }
+
+  protected void configuraBackButton(){
+    if (isBackButtonNull()) {
+      inicializaBackButton();
+      posicionaBackButton(0, 0, 100, 40);
     }
+    addBackButton();
+  }
+
+  protected void addBackButton() {
     this.addButton(back, new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
         destroy(back);
         destroy(buttons);
+        destroy(table, scrollPane);
+        endFrame();
         Menu.getInstance().Focus();
       }
     });
@@ -123,18 +165,17 @@ public abstract class GuiModel {
     back.setLocation(x, y);
   }
 
-  protected void makeTable(String[][] data, String[] columnNames){
-    JTable table = new JTable(data, columnNames);
-    table.setBounds(30, 40, 900, 600);
-    
-    scroll_pane.add(table);
+  protected void makeTable(String[][] data, String[] columns){
+    this.table = new JTable(data, columns);
+    this.scrollPane = new JScrollPane(table);
     table.setFillsViewportHeight(true);
-    scroll_pane.setLayout(new BoxLayout(scroll_pane, BoxLayout.PAGE_AXIS));
-    table.setLocation(100, 100);
-    //scroll_pane.setVisible(true);
-    frame.add(scroll_pane);
-    //frame.getContentPane().add(sp);
-    reload();
+    frame.getContentPane().setLayout(null);
+    frame.getContentPane().add(scrollPane);
+    scrollPane.setBounds(0, 40, 800, 350);
+  }
+
+  protected void addJOptionPane(String mensage, String Title){
+    
   }
 
   protected abstract void Focus();

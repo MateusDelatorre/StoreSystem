@@ -10,7 +10,6 @@ public final class Menu extends GuiModel{
     
 
     private Menu(){
-        StartFrame("Menu");
         StartButtons();
         Focus();
     }
@@ -29,6 +28,7 @@ public final class Menu extends GuiModel{
     }
 
     protected void Focus(){
+        StartFrame("Menu");
         auditoresButton();
         caixasButton();
         clienteButton();

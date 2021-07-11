@@ -22,6 +22,15 @@ public final class ProdutoHandler {
         return produtos.get(index);
     }
 
+    public static Produto getProdutoByCodigo(int codigo){
+        for (int i = 0; i < produtos.size(); i++) {
+            if(produtos.get(i).getCodigo() == codigo){
+                return produtos.get(i);
+            }
+        }
+        return null;
+    }
+
     public static int getSize(){
         return produtos.size();
     }
@@ -49,6 +58,15 @@ public final class ProdutoHandler {
     public static void salvarProdutos(){
         ArrayList<String> lines = toArrayList();
         FileHandler.writeFile(file_name, lines);
+    }
+
+    public static int reporProduto(int codigo, int quantidade){
+        var produto = getProdutoByCodigo(codigo);
+        if(produto != null){
+            produto.setquantidade_em_estoque(produto.getquantidade_em_estoque() + quantidade);
+            return 1;
+        }
+        return 0;
     }
 
     private static void toArrayList(ArrayList<String> lines){

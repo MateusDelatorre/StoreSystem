@@ -74,8 +74,8 @@ public class Produto {
 
     public ArrayList<String> toArrayList(){
         ArrayList<String> lines = new ArrayList<String>();
-        lines.add(categoria);
         lines.add(String.valueOf(codigo));
+        lines.add(categoria);
         lines.add(descricao);
         lines.add(nome);
         lines.add(String.valueOf(preco_compra));

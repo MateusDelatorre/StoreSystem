@@ -2,10 +2,6 @@ package Interface;
 
 public class CaixasGui {
 
-    protected static void Start(){
-        
-    }
-
     protected static void StartButtons(){
         
     }

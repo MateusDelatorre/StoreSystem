@@ -1,5 +1,7 @@
 package Classes;
 
+import java.util.ArrayList;
+
 public class Gerente extends Funcionario {
 
     private Double lucroObtidoMes;
@@ -14,6 +16,19 @@ public class Gerente extends Funcionario {
     }
     public void setLucroObtidoMes(Double lucroObtidoMes) {
         this.lucroObtidoMes = lucroObtidoMes;
+    }
+
+    public String toString(){
+        return "Nome: " + this.getNome() + "\n" + "CPF: " + this.getCpf() + "\n" + "Salario: " + this.getSalario() + "\n" + "Lucro obitido mês: " + this.getLucroObtidoMes();
+    }
+
+    public ArrayList<String> toArrayList(){
+        ArrayList<String> lines = new ArrayList<String>();
+        lines.add(this.getNome());
+        lines.add(String.valueOf(this.getCpf()));
+        lines.add(String.valueOf(this.getSalario()));
+        lines.add(String.valueOf(this.getLucroObtidoMes()));
+        return lines;
     }
 
 }

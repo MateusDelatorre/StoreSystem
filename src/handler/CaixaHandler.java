@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import Classes.Caixa;
 
 /** 
-* This class handler all the produtos methods
+* This class handler all the caixa methods
 */
 
 public final class CaixaHandler {

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import Classes.Auditor;
 
 /** 
-* This class handler all the produtos methods
+* This class handler all the auditor methods
 */
 
 public final class AuditorHandler {

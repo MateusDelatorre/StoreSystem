@@ -8,8 +8,6 @@ public class Auditor extends Funcionario {
         super(nome, cpf, salario);
     }
 
-    
-
     public String toString(){
         return "Nome: " + this.getNome() + "\n" + "CPF: " + this.getCpf() + "\n" + "Salario: " + this.getSalario();
     }

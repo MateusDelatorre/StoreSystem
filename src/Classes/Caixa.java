@@ -1,6 +1,8 @@
 package Classes;
 
-public class Caixa extends Funcionario {
+import Interface.CaixasGui;
+
+public class Caixa extends Funcionario implements Caixa_funcao {
     
     public Caixa(String nome, String cpf, float salario) {
         super(nome, cpf, salario);
@@ -9,6 +11,12 @@ public class Caixa extends Funcionario {
     public Caixa(String nome, String cpf) {
         super(nome, cpf);
     }
+
+    //função
+    public CaixasGui(String nome, String cpf, float dinheiro_recebido, float renda){
+        renda = dinheiro_recebido; 
+    }
+          
 
 
     @Override

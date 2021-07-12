@@ -1,10 +1,25 @@
 package Classes;
 
-public class Auditor extends Funcionario {
+import java.util.ArrayList;
 
-    public Auditor(String nome, String cpf, float salario) {
+public class Auditor extends Funcionario {
+import Interface.AuditoresGui;
+
+public class Auditor extends Funcionario implements Auditores_funcao{
+
+    public Auditor(String nome, String cpf, Double salario) {
         super(nome, cpf, salario);
     }
+
+    public String toString(){
+        return "Nome: " + this.getNome() + "\n" + "CPF: " + this.getCpf() + "\n" + "Salario: " + this.getSalario();
+    //funcao
+    public AuditoresGui(String nome, String cpf,float valor_pagar,float renda){
+        float x;
+        x = valor_pagar-renda;
+        return System.out.println("O VALOR DE %f FOI PAGO COM A RENDA %f. RENDA ATUAL DA LOJA: %f",valor_pagar,renda,x);
+    }
+
 
     @Override
     public String getNome() {
@@ -26,14 +41,12 @@ public class Auditor extends Funcionario {
         super.setCpf(cpf);
     }
 
-    @Override
-    public float getSalario() {
-        return super.getSalario();
+    public ArrayList<String> toArrayList(){
+        ArrayList<String> lines = new ArrayList<String>();
+        lines.add(this.getNome());
+        lines.add(String.valueOf(this.getCpf()));
+        lines.add(String.valueOf(this.getSalario()));
+        return lines;
     }
 
-    @Override
-    public void setSalario(float salario) {
-        super.setSalario(salario);
-    }
-    
 }

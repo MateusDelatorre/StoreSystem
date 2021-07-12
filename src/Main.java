@@ -1,15 +1,14 @@
-import java.awt.Font;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import java.awt.*;
-
-import Classes.Produto;
 import Interface.Login;
-import Interface.Menu;
+import Classes.Produto;
 import handler.ProdutoHandler;
+import Classes.Auditor;
+import handler.AuditorHandler;
+import handler.CaixaHandler;
+import Classes.Caixa;
+import handler.GerenteHandler;
+import Classes.Gerente;
+import handler.VendedorHandler;
+import Classes.Vendedor;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,0 +1,8 @@
+nome vendedor
+123321123
+1200
+15
+nome vendedor 2
+456545654
+6000
+12

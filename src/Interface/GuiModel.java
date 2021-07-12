@@ -5,6 +5,7 @@ import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import handler.ProdutoHandler;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
@@ -31,13 +32,13 @@ public abstract class GuiModel {
     frame.setSize(850, 500);
   }
 
-	protected void inicializaFrame(String tittle, String[][] data, String[] columns) {
-    frame = new JFrame(tittle);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setLayout(null);
-    frame.setSize(850, 500);
-    frame.setVisible(true);
-  }
+	// protected void inicializaFrame(String tittle, String[][] data, String[] columns) {
+  //   frame = new JFrame(tittle);
+  //   frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  //   frame.setLayout(null);
+  //   frame.setSize(850, 500);
+  //   frame.setVisible(true);
+  // }
 
   /** Adiciona um JButton ao JFrame e adiciona um ActionListener para realizar uma ou mais funções ao ser clicado
   */
@@ -173,6 +174,15 @@ public abstract class GuiModel {
 
   protected void makeTable(String[][] data, String[] columns){
     this.table = new JTable(data, columns);
+    this.scrollPane = new JScrollPane(table);
+    table.setFillsViewportHeight(true);
+    frame.getContentPane().setLayout(null);
+    frame.getContentPane().add(scrollPane);
+    scrollPane.setBounds(0, 40, 800, 350);
+  }
+  
+  protected void ListProdutos(){
+    this.table = new JTable(ProdutoHandler.getData(), columnNames);
     this.scrollPane = new JScrollPane(table);
     table.setFillsViewportHeight(true);
     frame.getContentPane().setLayout(null);

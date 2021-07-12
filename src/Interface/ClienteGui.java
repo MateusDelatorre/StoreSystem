@@ -176,7 +176,7 @@ public class ClienteGui extends GuiModel{
     }
 
     private void cartScreen(){
-        makeTable(ProdutoHandler.getData(), getColumnNames());
+        ListProdutos();
         inputField();
         cartButton();
     }

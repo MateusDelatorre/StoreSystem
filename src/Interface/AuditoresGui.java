@@ -11,8 +11,8 @@ import handler.ProdutoHandler;
 public class AuditoresGui extends GuiModel{
     
     private static AuditoresGui instance;
-    private final String[] columnNames = { "codigo", "categoria", "descricao", "nome", "preco_compra", "preco_venda", "quantidade_em_estoque" };
-    String[][] data;
+    // private final String[] columnNames = { "codigo", "categoria", "descricao", "nome", "preco_compra", "preco_venda", "quantidade_em_estoque" };
+    // String[][] data;
     private JTextField input_codigo;
     private JLabel label_codigo;
     private JTextField input_quantidade;
@@ -20,7 +20,7 @@ public class AuditoresGui extends GuiModel{
     
 
 	private AuditoresGui(){
-        
+        StartFrame("Auditores");
 	}
 
     protected static AuditoresGui getInstance() {
@@ -37,9 +37,9 @@ public class AuditoresGui extends GuiModel{
     }
 
     protected void Focus(){
-        data = ProdutoHandler.toArray();
-        inicializaFrame("Auditores", data, columnNames);
-        makeTable(data, columnNames);
+        // data = ProdutoHandler.toArray();
+        setVisible(true);
+        ListProdutos();
         StartButtons();
         inputField();
         reporButton();

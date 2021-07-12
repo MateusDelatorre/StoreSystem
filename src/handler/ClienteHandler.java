@@ -8,7 +8,7 @@ public class ClienteHandler {
     private static final String file_name = "cliente";
     private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
     
-    public void addCart(int index, Produto produto){
+    public static void addCart(int index, Produto produto){
         clientes.get(index).getCarrinho().add(produto);
     }
 
@@ -20,6 +20,17 @@ public class ClienteHandler {
             }
         }
         return -1;
+    }
+
+    public static ArrayList<Cliente> getClientesWithCart(){
+        ArrayList<Cliente> clientes_com_compras = new ArrayList<Cliente>();
+        carregarCliente();
+        for (int i = 0; i < clientes.size(); i++) {
+            if(clientes.get(i).getCarrinho() != null){
+                clientes_com_compras.add(clientes.get(i));
+            }
+        }
+        return clientes_com_compras;
     }
 
     public static Cliente getCliente(int index){
@@ -43,8 +54,6 @@ public class ClienteHandler {
     }
 
     private static void toArrayList(ArrayList<String> lines){
-        // if(produtos.size() != 0){
-        // }
         for (int i = 0; i < lines.size(); i+= 4){
             clientes.add(new Cliente(lines.get(i), lines.get(i + 1), lines.get(i + 2), Double.parseDouble(lines.get(i + 3))));
         }
@@ -56,5 +65,9 @@ public class ClienteHandler {
             lines.addAll(clientes.get(i).toArrayList());
         }
         return lines;
+    }
+
+    public static void cadastrarCliente(String name, String cpf, String senioriade){
+        clientes.add(new Cliente(name, cpf, senioriade, 0.0));
     }
 }

@@ -15,25 +15,23 @@ public final class ProdutoHandler {
     private ProdutoHandler(){
 
     }
-    /** 
-    * return a produto
-    */
-    public static Produto getproduto(int index){
-        return produtos.get(index);
-    }
+    
 
     public static int isProduto(int index){
         try {
             if(produtos.get(index) != null){
-                return 1;
+                return index;
             }
         } catch (Exception e) {
             //TODO: handle exception
-            return 0;
+            return -1;
         }
-        return 0;
+        return -1;
     }
 
+    /** 
+    * return a produto
+    */
     public static Produto getProdutoByCodigo(int codigo){
         for (int i = 0; i < produtos.size(); i++) {
             if(produtos.get(i).getCodigo() == codigo){

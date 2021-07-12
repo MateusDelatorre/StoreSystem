@@ -3,7 +3,7 @@ package Funcoes;
 
 import java.util.Set;
 
-interface Auditores_funcao {
+public class Auditores_funcao {
     private static float valor_pagar;
 
     public static float setValor_pagar() {

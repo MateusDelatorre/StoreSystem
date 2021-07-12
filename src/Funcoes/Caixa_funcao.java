@@ -2,11 +2,10 @@ package Funcoes;
 
 import Classes.Caixa;
 
-interface Caixa_funcao {
+public class Caixa_funcao {
     private static float dinheiro_recebido;
 
-    public interface Caixa_funcao{
-        setRenda = setDinheiro_recebido;
+    public Caixa_funcao(){
     }
 
     //get e set

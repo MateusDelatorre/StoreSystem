@@ -86,27 +86,17 @@ public abstract class GuiModel {
     reload();
   }
 
-  protected void destroy(JComponent component) {
-    frame.remove(component);
-    reload();
-  }
-
-  protected void destroy(JComponent... components) {
-    for (JComponent component : components) {
-      frame.remove(component);
-    }
-    reload();
-  }
-
   /**
    * Retira os botões do JFrame.
    * O metodo não destoi de fato os botões, os botões vão continuar na memoria até o garbage colletor remover eles
    */
   protected void destroy(ArrayList<JButton> buttons) {
-
-    for (int i = 0; i < buttons.size(); i++) {
-      frame.remove(buttons.get(i));
-    }
+    for( JButton currentButton: buttons ) {
+      for( ActionListener al : currentButton.getActionListeners() ) {
+        currentButton.removeActionListener( al );
+      }
+      frame.remove(currentButton);
+  }
     this.reload();
   }
 
@@ -141,21 +131,36 @@ public abstract class GuiModel {
     back.setBounds(x, y, width, height);
   }
 
-  protected void configuraBackButton(){
+  protected void destroy(JComponent component) {
+    frame.remove(component);
+    reload();
+  }
+
+  protected void destroy(JComponent... components) {
+    for (JComponent component : components) {
+      if (component != null) {
+        frame.remove(component);
+      }
+    }
+    reload();
+  }
+
+  protected void configuraBackButton(JComponent... components){
     if (isBackButtonNull()) {
       inicializaBackButton();
       posicionaBackButton(0, 0, 100, 40);
     }
-    addBackButton();
+    addBackButton(components);
   }
 
-  protected void addBackButton() {
+  protected void addBackButton(JComponent... components) {
     this.addButton(back, new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
         destroy(back);
         destroy(buttons);
         destroy(table, scrollPane);
+        destroy(components);
         endFrame();
         Menu.getInstance().Focus();
       }

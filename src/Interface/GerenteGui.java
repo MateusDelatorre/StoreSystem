@@ -2,7 +2,19 @@ package Interface;
 
 public class GerenteGui {
 
-    public static void TelaGerente() {
+    protected static void Start(){
+        
     }
 
+    protected static void StartButtons(){
+        
+    }
+
+    protected static void Focus(){
+        
+    }
+
+    private static void AddButtons(){
+        
+    }
 }

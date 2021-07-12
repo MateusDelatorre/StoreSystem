@@ -17,11 +17,7 @@ public class Main {
         // int x = i + j;
         // System.out.println(x);
         // Login gui = new Login();
-        VendedorHandler.carregarVendedor();
-        // Produto teste = ProdutoHandler.getproduto();
-        // System.out.println(teste.toString());
-        VendedorHandler.printaVendedor();
-        ProdutoHandler.printaProdutos();
-        
+        ProdutoHandler.carregarProduto();
+        Menu.getInstance();
     }
 }

@@ -1,102 +1,45 @@
 package Interface;
 
-import java.awt.event.*;
 import javax.swing.*;
+import java.awt.event.*;
+import java.util.ArrayList;
 
-public class Login {
+public final class Login extends GuiModel{
 
-    static JButton auditores;
-	static JButton caixas;
-	static JButton cliente;
-	static JButton gerente;
-	static JButton vendedor;
+    private static Login instance;
+    private ArrayList<JButton> buttons;
 
-    public Login(){
-        Interface.Start();
+    private Login(){
+        StartFrame("Menu");
         StartButtons();
-        TelaLogin();
+        Focus();
     }
 
-    protected static void TelaLogin(){
-        Interface.setTitle("Login");
-        Interface.setSize(300, 350);
+    public void Start(){
         
-        auditoresButton();
-        caixasButton();
-        clienteButton();
-        gerenteButton();
-        vendedorButton();
     }
 
     private void StartButtons(){
-        auditores = new JButton("auditores");
-        auditores.setBounds(100, 100, 100, 40);
-        caixas = new JButton("caixas");
-        caixas.setBounds(100, 100, 100, 40);
-        cliente = new JButton("cliente");
-        cliente.setBounds(100, 150, 100, 40);
-        gerente = new JButton("gerente");
-		gerente.setBounds(100, 200, 100, 40);
-        vendedor = new JButton("vendedor");
-		vendedor.setBounds(100, 250, 100, 40);
+        buttons = new ArrayList<JButton>();
+        buttons.add(new JButton("auditores"));
+        buttons.add(new JButton("caixas"));
+        buttons.add(new JButton("cliente"));
+        buttons.add(new JButton("gerente"));
+        buttons.add(new JButton("vendedor"));
+
+        for (int i = 0, j = 100; i < buttons.size(); i++, j += 50) {
+            buttons.get(i).setBounds(100, j, 100, 40);
+        }
     }
 
-    private static void auditoresButton(){
-        Interface.addButton(auditores, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                destroy();
-                AuditoresGui.TelaAuditores();
-            }
-        });
+    protected void Focus(){
+        
     }
 
-    private static void caixasButton(){
-        Interface.addButton(caixas, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                destroy();
-                CaixasGui.TelaCaixas();
-            }
-        });
-    }
-
-    private static void clienteButton(){
-        Interface.addButton(cliente, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                destroy();
-                ClienteGui.TelaCliente();
-            }
-        });
-    }
-
-    private static void gerenteButton(){
-        Interface.addButton(gerente, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                destroy();
-                GerenteGui.TelaGerente();
-            }
-        });
-    }
-
-    private static void vendedorButton(){
-        Interface.addButton(vendedor, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                destroy();
-                VendedorGui.TelaVendedor();
-            }
-        });
-    }
-
-    private static void destroy() {
-        Interface.destroy(auditores);
-        Interface.destroy(caixas);
-        Interface.destroy(cliente);
-        Interface.destroy(gerente);
-        Interface.destroy(vendedor);
-        Interface.reload();
+    public static Login getInstance() {
+        if (instance == null) {
+            instance = new Login();
+        }
+        return instance;
     }
 }

@@ -86,7 +86,8 @@ public final class Menu extends GuiModel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 destroy(buttons);
-                VendedorGui.Focus();
+                VendedorGui vendedor = VendedorGui.getInstance();
+                vendedor.Focus();
             }
         });
     }

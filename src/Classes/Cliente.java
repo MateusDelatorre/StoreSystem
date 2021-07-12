@@ -1,33 +1,16 @@
 package Classes;
 
+import java.util.ArrayList;
+
 public class Cliente extends Pessoa{
     private String senioridade;
-    private float totalComprado;
+    private Double totalComprado;
+    ArrayList<Produto> carrinho;
 
-    public Cliente(String nome, String cpf, String senioriade, float totalComprado) {
+    public Cliente(String nome, String cpf, String senioriade, Double totalComprado) {
         super(nome, cpf);
         this.senioridade = senioriade;
         this.totalComprado = totalComprado;
-    }
-
-    @Override
-    public String getNome() {
-        return super.getNome();
-    }
-    
-    @Override
-    public void setNome(String nome) {
-        super.setNome(nome);;
-    }
-
-    @Override
-    public String getCpf() {
-        return super.getCpf();
-    }
-
-    @Override
-    public void setCpf(String cpf) {
-        super.setCpf(cpf);;
     }
 
     public String getSenioridade() {
@@ -38,12 +21,25 @@ public class Cliente extends Pessoa{
         this.senioridade = senioridade;
     }
 
-    public float getTotalComprado() {
+    public Double getTotalComprado() {
         return totalComprado;
     }
 
-    public void setTotalComprado(float totalComprado) {
+    public void setTotalComprado(Double totalComprado) {
         this.totalComprado = totalComprado;
+    }
+
+    public ArrayList<String> toArrayList(){
+        ArrayList<String> lines = new ArrayList<String>();
+        lines.add(getNome());
+        lines.add(getCpf());
+        lines.add(getSenioridade());
+        lines.add(String.valueOf(getTotalComprado()));
+        return lines;
+    }
+
+    public ArrayList<Produto> getCarrinho(){
+        return carrinho;
     }
 
 }

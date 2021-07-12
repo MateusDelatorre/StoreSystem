@@ -10,6 +10,7 @@ public final class Menu extends GuiModel{
     
 
     private Menu(){
+        StartFrame("Menu");
         StartButtons();
         Focus();
     }
@@ -28,7 +29,7 @@ public final class Menu extends GuiModel{
     }
 
     protected void Focus(){
-        StartFrame("Menu");
+        setVisible(true);
         auditoresButton();
         caixasButton();
         clienteButton();
@@ -54,7 +55,6 @@ public final class Menu extends GuiModel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 destroy(buttons);
-                CaixasGui.Focus();
             }
         });
     }
@@ -64,7 +64,9 @@ public final class Menu extends GuiModel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 destroy(buttons);
-                
+                ClienteGui cliente = ClienteGui.getInstance();
+                cliente.Focus();
+                endFrame();
             }
         });
     }

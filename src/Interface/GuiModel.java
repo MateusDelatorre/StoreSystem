@@ -15,6 +15,7 @@ public abstract class GuiModel {
   protected ArrayList<JButton> buttons;
   private JTable table;
   private JScrollPane scrollPane;
+  private final String[] columnNames = { "codigo", "categoria", "descricao", "nome", "preco_compra", "preco_venda", "quantidade_em_estoque" };
 
   /*
   * Metodos para manipular o JFrame
@@ -177,6 +178,10 @@ public abstract class GuiModel {
   protected void addJOptionPane(String mensage, String Title){
     
   }
+
+  protected String[] getColumnNames() {
+    return columnNames;
+}
 
   protected abstract void Focus();
 }

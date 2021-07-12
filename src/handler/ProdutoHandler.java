@@ -22,6 +22,18 @@ public final class ProdutoHandler {
         return produtos.get(index);
     }
 
+    public static int isProduto(int index){
+        try {
+            if(produtos.get(index) != null){
+                return 1;
+            }
+        } catch (Exception e) {
+            //TODO: handle exception
+            return 0;
+        }
+        return 0;
+    }
+
     public static Produto getProdutoByCodigo(int codigo){
         for (int i = 0; i < produtos.size(); i++) {
             if(produtos.get(i).getCodigo() == codigo){
@@ -36,6 +48,15 @@ public final class ProdutoHandler {
     }
 
     public static String[][] toArray(){
+        String[][] data = new String[produtos.size()][];
+        for (int i = 0; i < produtos.size(); i++) {
+            ArrayList<String> row = produtos.get(i).toArrayList();
+            data[i] = row.toArray(new String[row.size()]);
+        }
+        return data;
+    }
+
+    public static String[][] toArrayCliente(){
         String[][] data = new String[produtos.size()][];
         for (int i = 0; i < produtos.size(); i++) {
             ArrayList<String> row = produtos.get(i).toArrayList();
@@ -83,5 +104,8 @@ public final class ProdutoHandler {
             lines.addAll(produtos.get(i).toArrayList());
         }
         return lines;
+    }
+    public static String[][] getData() {
+        return toArray();
     }
 }

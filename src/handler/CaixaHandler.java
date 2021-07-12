@@ -53,4 +53,8 @@ public final class CaixaHandler {
         }
         return lines;
     }
+
+    public static void cadastrarCaixa(String name, String cpf, Double salario){
+        caixas.add(new Caixa(name, cpf, salario));
+    }
 }

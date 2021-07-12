@@ -53,4 +53,8 @@ public final class AuditorHandler {
         }
         return lines;
     }
+
+    public static void cadastrarAuditor(String name, String cpf, Double salario){
+        auditores.add(new Auditor(name, cpf, salario));
+    }
 }

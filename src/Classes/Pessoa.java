@@ -2,8 +2,8 @@ package Classes;
 
 public class Pessoa {
 
-    protected String nome;
-    protected String cpf;
+    private String nome;
+    private String cpf;
 
     public Pessoa() {
        

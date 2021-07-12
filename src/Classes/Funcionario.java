@@ -2,7 +2,7 @@ package Classes;
 
 public class Funcionario extends Pessoa{
     
-    private float salario;
+    private Double salario;
 
     public Funcionario() {
         
@@ -12,33 +12,15 @@ public class Funcionario extends Pessoa{
         super(nome, cpf);
     }
 
-    
-    public Funcionario(String nome, String cpf, float salario) {
+    public Funcionario(String nome, String cpf, Double salario) {
         super(nome, cpf);
         this.salario = salario;
     }
-
-    @Override
-    public String getNome() {
-        return super.getNome();
-    }
-    @Override
-    public void setNome(String nome) {
-        super.setNome(nome);;
-    }
-    @Override
-    public String getCpf() {
-        return super.getCpf();
-    }
-    @Override
-    public void setCpf(String cpf) {
-        super.setCpf(cpf);;
-    }
-
-    public float getSalario() {
+    
+    public Double getSalario() {
         return salario;
     }
-    public void setSalario(float salario) {
+    public void setSalario(double salario) {
         this.salario = salario;
     }
 

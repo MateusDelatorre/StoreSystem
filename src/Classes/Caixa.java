@@ -1,10 +1,13 @@
 package Classes;
 
+import java.util.ArrayList;
+
+public class Caixa extends Funcionario {
 import Interface.CaixasGui;
 
 public class Caixa extends Funcionario implements Caixa_funcao {
     
-    public Caixa(String nome, String cpf, float salario) {
+    public Caixa(String nome, String cpf, Double salario) {
         super(nome, cpf, salario);
     }
 
@@ -12,6 +15,8 @@ public class Caixa extends Funcionario implements Caixa_funcao {
         super(nome, cpf);
     }
 
+    public String toString(){
+        return "Nome: " + this.getNome() + "\n" + "CPF: " + this.getCpf() + "\n" + "Salario: " + this.getSalario();
     //função
     public CaixasGui(String nome, String cpf, float dinheiro_recebido, float renda){
         renda = dinheiro_recebido; 
@@ -44,9 +49,12 @@ public class Caixa extends Funcionario implements Caixa_funcao {
         return super.getSalario();
     }
 
-    @Override
-    public void setSalario(float salario) {
-        super.setSalario(salario);
+    public ArrayList<String> toArrayList(){
+        ArrayList<String> lines = new ArrayList<String>();
+        lines.add(this.getNome());
+        lines.add(String.valueOf(this.getCpf()));
+        lines.add(String.valueOf(this.getSalario()));
+        return lines;
     }
 
 }

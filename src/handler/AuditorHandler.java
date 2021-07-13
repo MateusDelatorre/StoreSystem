@@ -57,4 +57,18 @@ public final class AuditorHandler {
     public static void cadastrarAuditor(String name, String cpf, Double salario){
         auditores.add(new Auditor(name, cpf, salario));
     }
+
+    public static void removerAuditor(String cpf){
+        int i = 0;
+        while ( i < auditores.size()) {
+            if(auditores.get(i).getCpf() == cpf){
+                auditores.remove(i);
+                break;
+            }else{
+                i++;
+            }
+        }
+    }
+
+    
 }

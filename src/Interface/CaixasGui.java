@@ -6,8 +6,6 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import handler.ProdutoHandler;
-
-import javax.swing.WindowConstants.EXIT_ON_CLOSE;
 public class CaixasGui extends GuiModel{
 
 
@@ -30,7 +28,7 @@ private void caixasButton(){
     addButton(buttons.get(1), new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            Renda_da_loja.setRenda(Renda_daloja.getRenda + valor);
+            //Renda_da_loja.setRenda(Renda_daloja.getRenda + valor);
         }
     });
 }

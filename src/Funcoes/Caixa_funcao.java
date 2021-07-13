@@ -16,6 +16,4 @@ public class Caixa_funcao {
     public void setDinheiro_recebido(float dinheiro_recebido) {
         this.dinheiro_recebido = dinheiro_recebido;
     }
-    
-    
 }

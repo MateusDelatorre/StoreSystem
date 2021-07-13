@@ -13,7 +13,6 @@ public final class CaixaHandler {
     private static ArrayList<Caixa> caixas = new ArrayList<Caixa>();
     
     private CaixaHandler(){
-
     }
     /** 
     * return a caixa
@@ -69,6 +68,4 @@ public final class CaixaHandler {
             }
         }
     }
-
-    
 }

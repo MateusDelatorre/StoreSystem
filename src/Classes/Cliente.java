@@ -13,6 +13,7 @@ public class Cliente extends Pessoa{
         this.senioridade = senioriade;
         this.totalComprado = totalComprado;
         carrinho = new ArrayList<Produto>();
+        this.chekado = false;
     }
 
     public String getSenioridade() {
@@ -50,6 +51,18 @@ public class Cliente extends Pessoa{
 
     public ArrayList<Produto> getCarrinho(){
         return carrinho;
+    }
+
+    public void clearCarrinho(){
+        carrinho = new ArrayList<Produto>();
+    }
+
+    public Double getTotalDaCompra(){
+        double total_da_compra = 0.0;
+        for (Produto produto : carrinho) {
+            total_da_compra += (produto.getpreco_venda() * produto.getquantidade_em_estoque());
+        }
+        return total_da_compra;
     }
 
 }

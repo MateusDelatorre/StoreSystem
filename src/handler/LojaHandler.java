@@ -1,20 +1,18 @@
 package handler;
 
 public class LojaHandler {
-    private static float renda;
+    private static Double patrimonio;
     
     //construtores
-    private LojaHandler() {
-        
-    }
+    private LojaHandler() {}
 
     //get e set
 
-    public static float getRenda() {
-        return renda;
+    public static Double getPatrimonio() {
+        return patrimonio;
     }
 
-    public static void setRenda(float incomme) {
-        renda = incomme;
+    public static void Stonks(Double incomme) {
+        patrimonio = incomme;
     }
 }

@@ -57,14 +57,13 @@ public class ClienteHandler {
         return toArray(clientes_com_compras);
     }
 
-    public static String[][] getClientesChekados(){
-        ArrayList<Cliente> clientes_chekados = new ArrayList<Cliente>();
+    public static Cliente getClienteChekados(){
         for (int i = 0; i < clientes.size(); i++) {
             if(clientes.get(i).getChekado() == true){
-                clientes_chekados.add(clientes.get(i));
+                return clientes.get(i);
             }
         }
-        return toArray(clientes_chekados);
+        return null;
     }
 
     public static String[][] toArray(ArrayList<Cliente> clientes){

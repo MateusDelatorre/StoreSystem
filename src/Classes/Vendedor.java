@@ -24,10 +24,10 @@ public class Vendedor extends Funcionario {
 
     public ArrayList<String> toArrayList(){
         ArrayList<String> lines = new ArrayList<String>();
-        lines.add(this.getNome());
-        lines.add(String.valueOf(this.getCpf()));
-        lines.add(String.valueOf(this.getSalario()));
-        lines.add(String.valueOf(this.getVendasMes()));
+        lines.add(getNome());
+        lines.add(getCpf());
+        lines.add(String.valueOf(getSalario()));
+        lines.add(String.valueOf(getVendasMes()));
         return lines;
     }
 

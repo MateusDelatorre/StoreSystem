@@ -12,9 +12,6 @@ public final class CaixaHandler {
 
     private static final String file_name = "caixas";
     private static ArrayList<Caixa> caixas = new ArrayList<Caixa>();
-    
-    private CaixaHandler(){
-    }
 
     public static Cliente hasCliente() {
         return ClienteHandler.getClienteChekados();
@@ -25,6 +22,15 @@ public final class CaixaHandler {
     */
     public static Caixa getaCaixa(int index){
         return caixas.get(index);
+    }
+
+    public static void setCaixaArray(ArrayList<Caixa> new_caixas){
+        caixas.clear();
+        caixas.addAll(new_caixas);
+    }
+
+    public static ArrayList<Caixa> getCaixaArray(){
+        return caixas;
     }
 
     public static void printaCaixa(){
@@ -59,19 +65,21 @@ public final class CaixaHandler {
         return lines;
     }
 
-    public static void cadastrarCaixa(String name, String cpf, Double salario){
-        caixas.add(new Caixa(name, cpf, salario));
+    public static void cadastrarCaixa(Caixa contratado){
+        caixas.add(contratado);
+        salvarCaixa();
     }
 
     public static void removerCaixa(String cpf){
         int i = 0;
         while ( i < caixas.size()) {
-            if(caixas.get(i).getCpf() == cpf){
+            if(caixas.get(i).getCpf().equals(cpf)){
                 caixas.remove(i);
                 break;
             }else{
                 i++;
             }
         }
+        salvarCaixa();
     }
 }

@@ -2,10 +2,7 @@ package Interface;
 
 import java.awt.event.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-
 import javax.swing.*;
-
 import handler.ProdutoHandler;
 
 public class AuditoresGui extends GuiModel{

@@ -22,6 +22,10 @@ public final class VendedorHandler {
         return vendedores.get(index);
     }
 
+    public static ArrayList<Vendedor> getVendedorArray(){
+        return vendedores;
+    }
+
     public static void printaVendedor(){
         for (int i = 0; i < vendedores.size(); i++) {
             System.out.println(vendedores.get(i).toString());
@@ -54,20 +58,22 @@ public final class VendedorHandler {
         return lines;
     }
 
-    public static void cadastrarVendedor(String name, String cpf, Double salario, Double vendasMes){
-        vendedores.add(new Vendedor(name, cpf, salario, vendasMes));
+    public static void cadastrarVendedor(Vendedor vendedor_contratado){
+        vendedores.add(vendedor_contratado);
+        salvarVendedor();
     }
 
     public static void removerVendedor(String cpf){
         int i = 0;
         while ( i < vendedores.size()) {
-            if(vendedores.get(i).getCpf() == cpf){
+            if(vendedores.get(i).getCpf().equals(cpf)){
                 vendedores.remove(i);
                 break;
             }else{
                 i++;
             }
         }
+        salvarVendedor();
     }
 
     

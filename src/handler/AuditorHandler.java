@@ -22,6 +22,10 @@ public final class AuditorHandler {
         return auditores.get(index);
     }
 
+    public static ArrayList<Auditor> getAuditorArray(){
+        return auditores;
+    }
+
     public static void printaAuditor(){
         for (int i = 0; i < auditores.size(); i++) {
             System.out.println(auditores.get(i).toString());
@@ -54,21 +58,21 @@ public final class AuditorHandler {
         return lines;
     }
 
-    public static void cadastrarAuditor(String name, String cpf, Double salario){
-        auditores.add(new Auditor(name, cpf, salario));
+    public static void cadastrarAuditor(Auditor contratado){
+        auditores.add(contratado);
+        salvarAuditor();
     }
 
     public static void removerAuditor(String cpf){
         int i = 0;
         while ( i < auditores.size()) {
-            if(auditores.get(i).getCpf() == cpf){
+            if(auditores.get(i).getCpf().equals(cpf)){
                 auditores.remove(i);
                 break;
             }else{
                 i++;
             }
         }
+        salvarAuditor();
     }
-
-    
 }

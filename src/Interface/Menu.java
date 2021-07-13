@@ -55,6 +55,9 @@ public final class Menu extends GuiModel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 destroy(buttons);
+                CaixasGui caixas = CaixasGui.getInstance();
+                caixas.Focus();
+                endFrame();
             }
         });
     }

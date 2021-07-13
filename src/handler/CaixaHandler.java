@@ -2,6 +2,7 @@ package handler;
 
 import java.util.ArrayList;
 import Classes.Caixa;
+import Classes.Cliente;
 
 /** 
 * This class handler all the caixa methods
@@ -14,6 +15,11 @@ public final class CaixaHandler {
     
     private CaixaHandler(){
     }
+
+    public static Cliente hasCliente() {
+        return ClienteHandler.getClienteChekados();
+    }
+
     /** 
     * return a caixa
     */

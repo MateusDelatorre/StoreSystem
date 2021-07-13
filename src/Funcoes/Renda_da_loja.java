@@ -14,7 +14,11 @@ abstract class Renda_da_loja {
         return renda;
     }
 
-    public void setRenda(float renda) {
+    public static void setRenda(float renda) {
         this.renda = renda;
     }
+    Renda_da_loja.setRenda(Renda_daloja.getRenda + valor);
+    tihs.Renda_da_loja = RendaValor;  
 }
+
+

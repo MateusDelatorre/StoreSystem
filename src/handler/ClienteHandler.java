@@ -50,7 +50,7 @@ public class ClienteHandler {
     public static String[][] getClientesWithCart(){
         ArrayList<Cliente> clientes_com_compras = new ArrayList<Cliente>();
         for (int i = 0; i < clientes.size(); i++) {
-            if(clientes.get(i).getCarrinho() != null){
+            if(!clientes_com_compras.isEmpty()){
                 clientes_com_compras.add(clientes.get(i));
             }
         }

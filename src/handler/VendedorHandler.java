@@ -53,4 +53,22 @@ public final class VendedorHandler {
         }
         return lines;
     }
+
+    public static void cadastrarVendedor(String name, String cpf, Double salario, Double vendasMes){
+        vendedores.add(new Vendedor(name, cpf, salario, vendasMes));
+    }
+
+    public static void removerVendedor(String cpf){
+        int i = 0;
+        while ( i < vendedores.size()) {
+            if(vendedores.get(i).getCpf() == cpf){
+                vendedores.remove(i);
+                break;
+            }else{
+                i++;
+            }
+        }
+    }
+
+    
 }

@@ -53,4 +53,22 @@ public final class CaixaHandler {
         }
         return lines;
     }
+
+    public static void cadastrarCaixa(String name, String cpf, Double salario){
+        caixas.add(new Caixa(name, cpf, salario));
+    }
+
+    public static void removerCaixa(String cpf){
+        int i = 0;
+        while ( i < caixas.size()) {
+            if(caixas.get(i).getCpf() == cpf){
+                caixas.remove(i);
+                break;
+            }else{
+                i++;
+            }
+        }
+    }
+
+    
 }

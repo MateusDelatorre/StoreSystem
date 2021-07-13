@@ -6,6 +6,7 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import handler.ProdutoHandler;
+import handler.ClienteHandler;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
@@ -97,7 +98,7 @@ public abstract class GuiModel {
         currentButton.removeActionListener( al );
       }
       frame.remove(currentButton);
-  }
+    }
     this.reload();
   }
 
@@ -183,6 +184,16 @@ public abstract class GuiModel {
   
   protected void ListProdutos(){
     this.table = new JTable(ProdutoHandler.getData(), columnNames);
+    this.scrollPane = new JScrollPane(table);
+    table.setFillsViewportHeight(true);
+    frame.getContentPane().setLayout(null);
+    frame.getContentPane().add(scrollPane);
+    scrollPane.setBounds(0, 40, 800, 350);
+  }
+
+  protected void ListarClientesWithCart(){
+    String[] columnNames1 = { "Nome", "Cpf", "Senioridade"};
+    this.table = new JTable(ClienteHandler.getClientesWithCart(), columnNames1);
     this.scrollPane = new JScrollPane(table);
     table.setFillsViewportHeight(true);
     frame.getContentPane().setLayout(null);

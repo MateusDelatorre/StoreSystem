@@ -8,12 +8,37 @@ public class ClienteHandler {
     private static final String file_name = "cliente";
     private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
     
-    public static void addCart(int index, Produto produto){
-        clientes.get(index).getCarrinho().add(produto);
+    public static void addCart(int index, Produto produto, int quantidade){
+        Produto pro = new Produto(produto);
+        pro.setquantidade_em_estoque(quantidade);
+        clientes.get(index).getCarrinho().add(pro);
+    }
+
+    public static Boolean checarCliente(String NomeDoCliente){
+        Cliente cliente = clientes.get(getClienteByLogin(NomeDoCliente));
+        if(checarProdutoDoCliente(cliente)){
+            if(receberProduto(cliente)){
+                cliente.setChekado(true);
+            }
+        }
+        return false;
+    }
+
+    private static Boolean checarProdutoDoCliente(Cliente cliente){
+        for(Produto currentProduto: cliente.getCarrinho() ) {
+            return ProdutoHandler.checarDisponibilidade(currentProduto.getCodigo(), currentProduto.getquantidade_em_estoque());
+        }
+        return false;
+    }
+
+    private static Boolean receberProduto(Cliente cliente){
+        for(Produto currentProduto: cliente.getCarrinho() ) {
+            return ProdutoHandler.perderProduto(currentProduto.getCodigo(), currentProduto.getquantidade_em_estoque());
+        }
+        return false;
     }
 
     public static int getClienteByLogin(String login){
-        carregarCliente();
         for (int i = 0; i < clientes.size(); i++) {
             if(clientes.get(i).getNome().equals(login)){
                 return i;
@@ -22,15 +47,33 @@ public class ClienteHandler {
         return -1;
     }
 
-    public static ArrayList<Cliente> getClientesWithCart(){
+    public static String[][] getClientesWithCart(){
         ArrayList<Cliente> clientes_com_compras = new ArrayList<Cliente>();
-        carregarCliente();
         for (int i = 0; i < clientes.size(); i++) {
             if(clientes.get(i).getCarrinho() != null){
                 clientes_com_compras.add(clientes.get(i));
             }
         }
-        return clientes_com_compras;
+        return toArray(clientes_com_compras);
+    }
+
+    public static String[][] getClientesChekados(){
+        ArrayList<Cliente> clientes_chekados = new ArrayList<Cliente>();
+        for (int i = 0; i < clientes.size(); i++) {
+            if(clientes.get(i).getChekado() == true){
+                clientes_chekados.add(clientes.get(i));
+            }
+        }
+        return toArray(clientes_chekados);
+    }
+
+    public static String[][] toArray(ArrayList<Cliente> clientes){
+        String[][] data = new String[clientes.size()][];
+        for (int i = 0; i < clientes.size(); i++) {
+            ArrayList<String> row = clientes.get(i).toArrayList();
+            data[i] = row.toArray(new String[row.size()]);
+        }
+        return data;
     }
 
     public static Cliente getCliente(int index){

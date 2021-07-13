@@ -15,7 +15,27 @@ public final class ProdutoHandler {
     private ProdutoHandler(){
 
     }
-    
+
+    public static Boolean perderProduto(int codigo, int quantidade) {
+        Produto produto = getProdutoByCodigo(codigo);
+        if (produto != null){
+            if(produto.getquantidade_em_estoque() >= quantidade){
+                produto.setquantidade_em_estoque(produto.getquantidade_em_estoque() - quantidade);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static Boolean checarDisponibilidade(int codigo, int quantidade){
+        Produto produto = getProdutoByCodigo(codigo);
+        if (produto != null){
+            if(produto.getquantidade_em_estoque() >= quantidade){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static int isProduto(int index){
         try {
@@ -46,15 +66,6 @@ public final class ProdutoHandler {
     }
 
     public static String[][] toArray(){
-        String[][] data = new String[produtos.size()][];
-        for (int i = 0; i < produtos.size(); i++) {
-            ArrayList<String> row = produtos.get(i).toArrayList();
-            data[i] = row.toArray(new String[row.size()]);
-        }
-        return data;
-    }
-
-    public static String[][] toArrayCliente(){
         String[][] data = new String[produtos.size()][];
         for (int i = 0; i < produtos.size(); i++) {
             ArrayList<String> row = produtos.get(i).toArrayList();

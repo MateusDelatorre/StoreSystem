@@ -23,6 +23,16 @@ public class Produto {
         this.descricao = descricao;
     }
 
+    public Produto(Produto produto) {
+        this.codigo = produto.getCodigo();
+        this.nome = produto.getNome();
+        this.categoria = produto.getCategoria();
+        this.preco_compra = produto.getpreco_compra();
+        this.preco_venda = produto.getpreco_venda();
+        this.quantidade_em_estoque = produto.getquantidade_em_estoque();
+        this.descricao = produto.getDescricao();
+    }
+
     //Gets-Sets
 
     public int getCodigo() {

@@ -6,11 +6,13 @@ public class Cliente extends Pessoa{
     private String senioridade;
     private Double totalComprado;
     ArrayList<Produto> carrinho;
+    private Boolean chekado;
 
     public Cliente(String nome, String cpf, String senioriade, Double totalComprado) {
         super(nome, cpf);
         this.senioridade = senioriade;
         this.totalComprado = totalComprado;
+        carrinho = new ArrayList<Produto>();
     }
 
     public String getSenioridade() {
@@ -29,12 +31,20 @@ public class Cliente extends Pessoa{
         this.totalComprado = totalComprado;
     }
 
+    public Boolean getChekado() {
+        return chekado;
+    }
+
+    public void setChekado(Boolean check) {
+        this.chekado = check;
+    }
+
     public ArrayList<String> toArrayList(){
         ArrayList<String> lines = new ArrayList<String>();
         lines.add(getNome());
         lines.add(getCpf());
         lines.add(getSenioridade());
-        lines.add(String.valueOf(getTotalComprado()));
+        //lines.add(String.valueOf(getTotalComprado()));
         return lines;
     }
 

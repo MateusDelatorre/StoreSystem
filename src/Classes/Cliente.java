@@ -45,7 +45,7 @@ public class Cliente extends Pessoa{
         lines.add(getNome());
         lines.add(getCpf());
         lines.add(getSenioridade());
-        //lines.add(String.valueOf(getTotalComprado()));
+        lines.add(String.valueOf(getTotalComprado()));
         return lines;
     }
 

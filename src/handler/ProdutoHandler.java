@@ -21,6 +21,7 @@ public final class ProdutoHandler {
         if (produto != null){
             if(produto.getquantidade_em_estoque() >= quantidade){
                 produto.setquantidade_em_estoque(produto.getquantidade_em_estoque() - quantidade);
+                salvarProdutos();
                 return true;
             }
         }
@@ -80,6 +81,25 @@ public final class ProdutoHandler {
         }
     }
 
+    public static int reporProduto(int codigo, int quantidade){
+        var produto = getProdutoByCodigo(codigo);
+        if(produto == null){
+            return 0;
+        }
+        Double valor_a_pagar = produto.getpreco_compra() * quantidade;
+        if (valor_a_pagar > LojaHandler.getPatrimonio()) {
+            return -1;
+        }
+        LojaHandler.NotStonks(valor_a_pagar);
+        produto.setquantidade_em_estoque(produto.getquantidade_em_estoque() + quantidade);
+        salvarProdutos();
+        return 1;
+    }
+
+    public static String[][] getData() {
+        return toArray();
+    }
+
     public static void carregarProduto(){
         ArrayList<String> lines = FileHandler.readFile(file_name);
         toArrayList(lines);
@@ -88,15 +108,6 @@ public final class ProdutoHandler {
     public static void salvarProdutos(){
         ArrayList<String> lines = toArrayList();
         FileHandler.writeFile(file_name, lines);
-    }
-
-    public static int reporProduto(int codigo, int quantidade){
-        var produto = getProdutoByCodigo(codigo);
-        if(produto != null){
-            produto.setquantidade_em_estoque(produto.getquantidade_em_estoque() + quantidade);
-            return 1;
-        }
-        return 0;
     }
 
     private static void toArrayList(ArrayList<String> lines){
@@ -113,8 +124,5 @@ public final class ProdutoHandler {
             lines.addAll(produtos.get(i).toArrayList());
         }
         return lines;
-    }
-    public static String[][] getData() {
-        return toArray();
     }
 }

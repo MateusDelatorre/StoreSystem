@@ -31,6 +31,7 @@ public final class FileHandler {
             FileWriter myWriter = new FileWriter("Banco/" + file_name + ".txt");
             for (int i = 0; i < lines.size(); i++) {
                 myWriter.write(lines.get(i));
+                myWriter.write("\n");
             }
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
@@ -41,6 +42,7 @@ public final class FileHandler {
     }
 
     public static ArrayList<String> readFile(String file_name) {
+        criarFile(file_name);
         ArrayList<String> lines = new ArrayList<String>();
         try {
             File file = new File("Banco/" + file_name + ".txt");

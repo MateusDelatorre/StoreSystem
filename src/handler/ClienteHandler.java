@@ -111,5 +111,6 @@ public class ClienteHandler {
 
     public static void cadastrarCliente(String name, String cpf, String senioriade){
         clientes.add(new Cliente(name, cpf, senioriade, 0.0));
+        salvarCliente();
     }
 }

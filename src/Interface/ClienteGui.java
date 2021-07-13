@@ -148,14 +148,6 @@ public class ClienteGui extends GuiModel{
     private void LoginButton(){
         addButton(buttons.get(0), new ActionListener() {
             @Override
-            // public void actionPerformed(ActionEvent e) {
-
-            //     destroy(buttons);
-            //     destroy(input_login, input_senha, login, senha);
-            //     id = 0;
-            //     reload();
-            //     cartScreen();
-            // }
             public void actionPerformed(ActionEvent e) {
                 var input = input_login.getText();
 

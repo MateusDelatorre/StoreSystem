@@ -5,6 +5,7 @@ import handler.ProdutoHandler;
 import Classes.Auditor;
 import handler.AuditorHandler;
 import handler.CaixaHandler;
+import handler.ClienteHandler;
 import Classes.Caixa;
 import handler.GerenteHandler;
 import Classes.Gerente;
@@ -18,6 +19,7 @@ public class Main {
         // int x = i + j;
         // System.out.println(x);
         // Login gui = new Login();
+        ClienteHandler.carregarCliente();
         ProdutoHandler.carregarProduto();
         Menu.getInstance();
     }

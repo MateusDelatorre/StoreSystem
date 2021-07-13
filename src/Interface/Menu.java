@@ -88,6 +88,7 @@ public final class Menu extends GuiModel{
                 destroy(buttons);
                 VendedorGui vendedor = VendedorGui.getInstance();
                 vendedor.Focus();
+                endFrame();
             }
         });
     }

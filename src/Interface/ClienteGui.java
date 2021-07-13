@@ -23,7 +23,7 @@ public class ClienteGui extends GuiModel{
 
     private ClienteGui(){
         cart = new ArrayList<Integer>();
-        StartFrame("Caixas");
+        StartFrame("Cliente");
         StartLabels();
         StartButtons();
     }
@@ -216,7 +216,7 @@ public class ClienteGui extends GuiModel{
                     if (codigo != 1) {
                         JOptionPane.showMessageDialog(null, "Algo de errado não está certo", "Hmmmm...", JOptionPane.ERROR_MESSAGE);
                     }else{
-                        ClienteHandler.addCart(index, ProdutoHandler.getProdutoByCodigo(codigo));
+                        ClienteHandler.addCart(index, ProdutoHandler.getProdutoByCodigo(codigo), Integer.parseInt(quantidade));
                         cart.add(Integer.parseInt(input));
                     }
                     cart_label.setText("cart: " + String.valueOf(cart.size()));
